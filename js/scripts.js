@@ -53,12 +53,11 @@ function newGame() {
     setGameElements();
 
     playerNameElem.innerHTML = player.name;
+
+  } else if (player.name === '') {
+  	alert('Enter Your name, anonnimus do not get prizes ;)');
   }
 
-}
-
-function playerPick(playerPick) {
-    console.log(playerPick);
 }
 
 function getComputerPick() {
@@ -71,24 +70,17 @@ var playerPickElem = document.getElementById('js-playerPick'),
     playerResultElem = document.getElementById('js-playerResult'),
     computerResultElem = document.getElementById('js-computerResult');
 
-function playerPick(playerPick) {
-    var computerPick = getComputerPick();
-
-    playerPickElem.innerHTML = playerPick;
-    computerPickElem.innerHTML = computerPick;
-}
-
 function checkRoundWinner(playerPick, computerPick) {
   playerResultElem.innerHTML = computerResultElem.innerHTML = '';
 
   var winnerIs = 'player';
 
-    if (playerPick == computerPick) {
+    if (playerPick === computerPick) {
         winnerIs = 'noone'; 
     } else if (
-        (computerPick == 'rock' &&  playerPick == 'scissors') ||
-        (computerPick == 'scissors' &&  playerPick == 'paper') ||
-        (computerPick == 'paper' &&  playerPick == 'rock')) {
+        (computerPick === 'rock' &&  playerPick === 'scissors') ||
+        (computerPick === 'scissors' &&  playerPick === 'paper') ||
+        (computerPick === 'paper' &&  playerPick === 'rock')) {
 
         winnerIs = 'computer';
     }
@@ -133,4 +125,3 @@ function endGame() {
     	setGameElements();
   	}
 }
-
